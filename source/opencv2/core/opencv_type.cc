@@ -140,7 +140,7 @@ void opencv_point_init(int module_number){
     memcpy(&opencv_point_object_handlers,
            zend_get_std_object_handlers(), sizeof(zend_object_handlers));
     opencv_point_object_handlers.clone_obj = NULL;
-    opencv_point_object_handlers.write_property = opencv_point_write_property;
+    opencv_point_object_handlers.write_property = (zend_object_write_property_t)opencv_point_write_property;
     opencv_point_object_handlers.free_obj = opencv_point_free_obj;
 }
 
@@ -364,7 +364,7 @@ void opencv_size_init(int module_number){
     memcpy(&opencv_size_object_handlers,
            zend_get_std_object_handlers(), sizeof(zend_object_handlers));
     opencv_size_object_handlers.clone_obj = NULL;
-    opencv_size_object_handlers.write_property = opencv_size_write_property;
+    opencv_size_object_handlers.write_property = (zend_object_write_property_t)opencv_size_write_property;
     opencv_size_object_handlers.free_obj = opencv_size_free_obj;
 }
 
@@ -559,7 +559,7 @@ void opencv_rect_init(int module_number){
     memcpy(&opencv_rect_object_handlers,
            zend_get_std_object_handlers(), sizeof(zend_object_handlers));
     opencv_rect_object_handlers.clone_obj = NULL;
-    opencv_rect_object_handlers.write_property = opencv_rect_write_property;
+    opencv_rect_object_handlers.write_property = (zend_object_write_property_t)opencv_rect_write_property;
     opencv_rect_object_handlers.free_obj = opencv_rect_free_obj;
 }
 
@@ -730,7 +730,7 @@ void opencv_rotated_rect_init(int module_number){
     memcpy(&opencv_rotated_rect_object_handlers,
            zend_get_std_object_handlers(), sizeof(zend_object_handlers));
     opencv_rotated_rect_object_handlers.clone_obj = NULL;
-    opencv_rotated_rect_object_handlers.write_property = opencv_rotated_rect_write_property;
+    opencv_rotated_rect_object_handlers.write_property = (zend_object_write_property_t)opencv_rotated_rect_write_property;
     opencv_rotated_rect_object_handlers.free_obj = opencv_rotated_rect_free_obj;
 }
 

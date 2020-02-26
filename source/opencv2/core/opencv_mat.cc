@@ -717,7 +717,7 @@ void opencv_mat_init(int module_number){
     memcpy(&opencv_mat_object_handlers,
            zend_get_std_object_handlers(), sizeof(zend_object_handlers));
     opencv_mat_object_handlers.clone_obj = nullptr;
-    opencv_mat_object_handlers.write_property = opencv_mat_write_property;
+    opencv_mat_object_handlers.write_property = (zend_object_write_property_t)opencv_mat_write_property;
 
     zend_declare_property_null(opencv_mat_ce,"type",sizeof("type") - 1,ZEND_ACC_PRIVATE);//private Mat->type
     opencv_mat_object_handlers.free_obj = opencv_mat_free_obj;
